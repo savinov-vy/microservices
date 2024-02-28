@@ -1,0 +1,17 @@
+server:
+  port: 8082
+
+integration:
+  client:
+    cbUrl: "https://www.cbr.ru/scripts/XML_daily.asp"
+    paramName: date_req
+    datePattern: dd/MM/yyyy
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  application:
+    name: cb-integration
