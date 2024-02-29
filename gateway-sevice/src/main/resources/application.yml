@@ -1,0 +1,25 @@
+server:
+  port: 8081
+
+cloud:
+  eureka-host: localhost
+  cb-integration-service-url: http://localhost:8082
+
+
+eureka:
+  client:
+    enabled: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  application:
+    name: api-gateway-service
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: cb-integration
+            uri: ${cloud.cb-integration-service-url}
+            predicates:
+              - Path=/money/course/**
